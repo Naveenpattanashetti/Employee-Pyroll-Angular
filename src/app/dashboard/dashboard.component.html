@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="header-content">
+        <div class="emp-detail-text">
+            Employee Details
+            <div class="emp-count">{{employeeCount}}</div>
+        </div>
+        <a class="add-button" routerLink="/addemployee"><img src="../assets/icons/add-24px.svg" alt="Icon">Add User</a>
+    </div>
+    <div class="table-main">
+        <table id="display" class="table">
+
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Start Date</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor="let employee of employeeDetails;">
+                <td>
+                    <img class="profile" src={{employee.profilePic}} alt="">
+                </td>
+                <td>{{employee?.name}}</td>
+                <td>{{employee?.gender}}</td>
+                <td>
+                    <div class="dept-label">
+                        {{employee?.departments}}
+                    </div>
+                </td>
+                <td>&#8377; {{employee?.salary}}</td>
+                <td>{{employee?.startDate}}</td>
+                <td>{{employee?.note}}</td>
+
+                <td>
+
+
+                    <img (click)="delete(employee.employeeId)" src="../assets/icons/delete-black-18dp.svg" alt="delete">
+                    <img (click)="update(employee)" src="../assets/icons/create-black-18dp.svg" alt="edit">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
